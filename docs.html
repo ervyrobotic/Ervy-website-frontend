@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="assets/css/scrollcue.min.css">
+        <link rel="stylesheet" href="assets/css/remixicon.css">
+        <link rel="stylesheet" href="assets/css/header.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/footer.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/dark-theme.css">
+        
+        <title>Documentation - Ervy Robotic</title>
+        <link rel="icon" type="image/png" href="assets/img/icon.png">
+        
+        <style>
+            .docs-sidebar {
+                position: sticky;
+                top: 100px;
+                height: calc(100vh - 120px);
+                overflow-y: auto;
+            }
+            .docs-sidebar ul {
+                list-style: none;
+                padding-left: 0;
+            }
+            .docs-sidebar ul li {
+                margin-bottom: 10px;
+            }
+            .docs-sidebar ul li a {
+                color: var(--paraColor);
+                text-decoration: none;
+                display: block;
+                padding: 8px 15px;
+                border-radius: 5px;
+                transition: all 0.3s;
+            }
+            .docs-sidebar ul li a:hover,
+            .docs-sidebar ul li a.active {
+                color: var(--primaryColor);
+                background-color: rgba(32, 136, 171, 0.1);
+            }
+            .docs-content h2 {
+                margin-top: 50px;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid var(--primaryColor);
+            }
+            .docs-content h3 {
+                margin-top: 30px;
+                margin-bottom: 15px;
+                color: var(--primaryColor);
+            }
+            .docs-content h2:first-child {
+                margin-top: 0;
+            }
+            .code-block {
+                background-color: #f5f5f5;
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid var(--primaryColor);
+                margin: 20px 0;
+                overflow-x: auto;
+            }
+            .code-block code {
+                font-family: 'Courier New', monospace;
+                font-size: 14px;
+            }
+            .note-box {
+                background-color: #E6F4F8;
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid var(--primaryColor);
+                margin: 20px 0;
+            }
+            .warning-box {
+                background-color: #fff3cd;
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid #ffc107;
+                margin: 20px 0;
+            }
+            .step-card {
+                background: #fff;
+                padding: 25px;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                margin-bottom: 20px;
+            }
+            .step-number {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: var(--primaryColor);
+                color: white;
+                border-radius: 50%;
+                font-weight: bold;
+                margin-right: 15px;
+            }
+            .theme-dark .code-block {
+                background-color: #1a1a1a;
+                color: #e0e0e0;
+            }
+            .theme-dark .note-box {
+                background-color: rgba(32, 136, 171, 0.15);
+            }
+            .theme-dark .step-card {
+                background-color: var(--codColor);
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="preloader-area" id="preloader">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <!-- Theme Switcher Start -->
+        <div class="switch-theme-mode">
+            <label id="switch" class="switch">
+                <input type="checkbox" onchange="toggleTheme()" id="slider">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <!-- Theme Switcher End -->
+
+        <!-- Custom Cursor -->
+        <div class="cursor"><span class="cursor-text"></span></div>
+        <div class="cursor-inner"></div>
+
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+
+                <!-- Navbar Start -->
+                <div class="navbar-area style-two position-relative" id="navbar">
+                    <div class="container-fluid">
+                        <div class="navbar-wrapper d-flex justify-content-between align-items-center">
+                            <a href="/" class="navbar-brand" style="width: 150px;">
+                                <img src="assets/img/logo.png" alt="Logo" class="logo-light">
+                                <img src="assets/img/logo.png" alt="Logo" class="logo-dark">
+                            </a>
+                            <div class="menu-area mx-auto">
+                                <div class="overlay"></div>
+                                <nav class="menu">
+                                    <div class="menu-mobile-header">
+                                        <button type="button" class="menu-mobile-arrow bg-transparent border-0"><i class="ri-arrow-left-s-line"></i></button>
+                                        <div class="menu-mobile-title"></div>
+                                        <button type="button" class="menu-mobile-close bg-transparent border-0"><i class="ri-close-line"></i></button>
+                                    </div>
+                                    <ul class="menu-section p-0 mb-0 lh-1">
+                                        <li>
+                                            <a href="index.html">Home &nbsp&nbsp</a>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Socials<i class="ri-arrow-down-s-fill"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                <li><a href="https://x.com/ErvyRobotic">X (Twitter)</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Crypto<i class="ri-arrow-down-s-fill"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                <li><a href="https://dexscreener.com/solana/6p7s8n2weh7yzcbjuwbgcnffkfa5oa5ykfcbtlgfzbpx">DexScreener</a></li>
+                                                <li><a href="https://www.dextools.io/app/en/token/ervy">DexTools</a></li>
+                                                <li><a href="https://photon-sol.tinyastro.io/en/lp/6p7s8n2WEH7yZCbJuWbGCNffkFA5oA5yKfCBtLGFZbPx">Photon</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="https://github.com/ErvyRobotic">GitHub</a>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="javascript:void(0)">Blog<i class="ri-arrow-down-s-fill"></i></a>
+                                            <ul class="menu-subs menu-column-1">
+                                                <li><a href="#">Medium (Soon)</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="mobile-only" style="display: none;">
+                                            <a href="docs.html" class="active">Documentation</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="other-options d-flex flex-wrap align-items-center justify-content-end">
+                                <div class="option-item">
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        <div class="mobile-options position-relative d-lg-none me-3">
+                                            <button class="dropdown-toggle  text-center bg-transparent border-0 p-0 transition" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                                <i class="ri-more-fill"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-centered mobile-option-list top-1 border-0" data-bs-popper="static">
+                                                <a href="docs.html" class="btn style-three fw-semibold position-relative round-oval">Documentation<span class="position-absolute top-0 end-0 h-100 d-flex flex-column align-items-center justify-content-center"><img src="assets/img/icons/right-arrow-white.svg" alt="Icon"></span></a>
+                                            </div>
+                                        </div>
+                                        <button  class="search-btn bg-transparent border-0 d-flex flex-wrap align-items-center dropdown-toggle text-center p-0 transition" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                                <img src="assets/img/icons/search.svg" alt="Search Icon">
+                                        </button>
+                                        <div class="search-dropdown dropdown-menu dropdown-menu-right top-1 border-0" data-bs-popper="static">
+                                             <form class="search-popup position-relative" action="#">
+                                                <input type="search" class="form-control text-para" placeholder="Search Documentation....">
+                                                <button type="submit" class="position-absolute top-0 end-0 h-100 border-0 bg-transparent d-flex flex-column align-items-center justify-content-center"><i class="ri-search-2-line"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="option-item d-lg-block d-none">
+                                    <a href="docs.html" class="btn style-three fw-semibold position-relative round-oval">Documentation<span class="position-absolute top-0 end-0 h-100 d-flex flex-column align-items-center justify-content-center"><img src="assets/img/icons/right-arrow-white.svg" alt="Icon"></span></a>
+                                </div>
+                                <div class="option-item d-lg-none">
+                                    <button type="button" class="menu-mobile-trigger">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navbar End -->
+
+                <!-- Documentation Header Start -->
+                <div class="hero-area style-two bg-f position-relative overflow-hidden round-10 z-1" style="padding: 80px 0 40px;">
+                    <div class="container-fluid position-relative">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h6 class="section-subtitle style-two bg_secondary fs-13 fw-semibold ls-1 text-black d-inline-block bg_primary round-oval mb-10" data-cue="slideInUp">
+                                    <img src="assets/img/icons/doc.svg" alt="Icon" style="width: 12px;">COMPLETE GUIDE
+                                </h6>
+                                <h1 class="font-secondary fw-medium text-black mb-20" data-cue="slideInUp" data-delay="300">Ervy Robotic <span class="text_primary fw-bold">Documentation</span></h1>
+                                <p class="mb-0 fs-18" data-cue="slideInUp" data-delay="400">Everything you need to build, deploy, and earn with your robotic arm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Documentation Header End -->
+
+                <!-- Documentation Content Start -->
+                <div class="container-fluid pt-80 pb-100">
+                    <div class="row">
+                        <!-- Sidebar -->
+                        <div class="col-lg-3 mb-30">
+                            <div class="docs-sidebar">
+                                <h5 class="fw-semibold mb-20">Table of Contents</h5>
+                                <ul>
+                                    <li><a href="#introduction" class="active">Introduction</a></li>
+                                    <li><a href="#getting-started">Getting Started</a></li>
+                                    <li><a href="#hardware-requirements">Hardware Requirements</a></li>
+                                    <li><a href="#3d-printing">3D Printing Guide</a></li>
+                                    <li><a href="#assembly">Assembly Instructions</a></li>
+                                    <li><a href="#electronics">Electronics Setup</a></li>
+                                    <li><a href="#software-installation">Software Installation</a></li>
+                                    <li><a href="#calibration">Calibration</a></li>
+                                    <li><a href="#network-connection">Network Connection</a></li>
+                                    <li><a href="#raas-setup">RaaS Node Setup</a></li>
+                                    <li><a href="#token-staking">Token Staking</a></li>
+                                    <li><a href="#earning">Earning & Rewards</a></li>
+                                    <li><a href="#api-reference">API Reference</a></li>
+                                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                                    <li><a href="#faq">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Main Content -->
+                        <div class="col-lg-9">
+                            <div class="docs-content">
+                                
+                                <!-- Introduction -->
+                                <section id="introduction">
+                                    <h2 class="font-secondary">Introduction</h2>
+                                    <p>Welcome to the Ervy Robotic documentation. This comprehensive guide will walk you through every step of building, deploying, and monetizing your own robotic arm as part of our decentralized Robotics-as-a-Service (RaaS) network.</p>
+                                    
+                                    <div class="row mt-40 mb-30">
+                                        <div class="col-md-6 mb-20">
+                                            <img src="assets/img/arm.webp" alt="Ervy Robotic Arm" class="w-100 round-10">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3>What is Ervy Robotic?</h3>
+                                            <p>Ervy Robotic builds the future of distributed robotics. We're launching a global network where 3D-printed robotic arms become autonomous service nodes, creating earning opportunities for builders and access for users worldwide through blockchain technology.</p>
+                                            <p>Our platform enables makers, hobbyists, and enterprises to participate in a shared robotics economy where every robotic arm contributes to and benefits from a growing decentralized network.</p>
+                                        </div>
+                                    </div>
+
+                                    <h3>Key Features</h3>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-20">
+                                            <div class="step-card">
+                                                <img src="assets/img/icons/shield-blue.svg" alt="Icon" width="40" class="mb-15">
+                                                <h5>100% Open Source</h5>
+                                                <p class="mb-0">All designs, firmware, and control software freely available</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-20">
+                                            <div class="step-card">
+                                                <img src="assets/img/icons/cloud.svg" alt="Icon" width="40" class="mb-15">
+                                                <h5>Decentralized Network</h5>
+                                                <p class="mb-0">Peer-to-peer marketplace for robotic capabilities</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-20">
+                                            <div class="step-card">
+                                                <img src="assets/img/icons/encrypted.svg" alt="Icon" width="40" class="mb-15">
+                                                <h5>Blockchain-Powered</h5>
+                                                <p class="mb-0">Smart contracts handle payments and rewards automatically</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Getting Started -->
+                                <section id="getting-started">
+                                    <h2 class="font-secondary">Getting Started</h2>
+                                    <p>Before you begin building your Ervy robotic arm, make sure you understand the complete process and have access to the necessary tools and materials.</p>
+
+                                    <div class="note-box">
+                                        <strong>⏱️ Estimated Time:</strong> 20-30 hours total (including printing time)<br>
+                                        <strong>💰 Estimated Cost:</strong> $300-$500 USD depending on your location and component choices<br>
+                                        <strong>🔧 Skill Level:</strong> Intermediate (basic understanding of 3D printing, electronics, and programming required)
+                                    </div>
+
+                                    <h3>Quick Start Overview</h3>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-20">
+                                            <div class="step-card">
+                                                <div class="d-flex align-items-center mb-15">
+                                                    <span class="step-number">1</span>
+                                                    <h5 class="mb-0">Download & Print</h5>
+                                                </div>
+                                                <p class="mb-0">Download our open-source blueprints and 3D print your robotic arm at home.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-20">
+                                            <div class="step-card">
+                                                <div class="d-flex align-items-center mb-15">
+                                                    <span class="step-number">2</span>
+                                                    <h5 class="mb-0">Assemble Hardware</h5>
+                                                </div>
+                                                <p class="mb-0">Follow our detailed assembly guide to put together all mechanical and electronic components.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-20">
+                                            <div class="step-card">
+                                                <div class="d-flex align-items-center mb-15">
+                                                    <span class="step-number">3</span>
+                                                    <h5 class="mb-0">Install Software</h5>
+                                                </div>
+                                                <p class="mb-0">Flash our firmware, run calibration routines, and verify full functionality.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-20">
+                                            <div class="step-card">
+                                                <div class="d-flex align-items-center mb-15">
+                                                    <span class="step-number">4</span>
+                                                    <h5 class="mb-0">Connect & Earn</h5>
+                                                </div>
+                                                <p class="mb-0">Connect to our network and activate your device as an earning node with token stake.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Hardware Requirements -->
+                                <section id="hardware-requirements">
+                                    <h2 class="font-secondary">Hardware Requirements</h2>
+                                    <p>Below is the complete Bill of Materials (BoM) for building your Ervy robotic arm. All components are readily available from major electronics suppliers.</p>
+
+                                    <h3>3D Printed Parts</h3>
+                                    <div class="code-block">
+                                        <strong>Required Parts:</strong><br>
+                                        - Base (1x) - 8 hours print time<br>
+                                        - Shoulder Joint (1x) - 6 hours<br>
+                                        - Upper Arm (1x) - 5 hours<br>
+                                        - Elbow Joint (1x) - 4 hours<br>
+                                        - Forearm (1x) - 4 hours<br>
+                                        - Wrist Assembly (1x) - 3 hours<br>
+                                        - Gripper Parts (2x) - 2 hours each<br>
+                                        - Motor Mounts (6x) - 1 hour each<br>
+                                        <br>
+                                        <strong>Total Print Time:</strong> ~40 hours<br>
+                                        <strong>Filament Required:</strong> ~1.2 kg PLA or PETG
+                                    </div>
+
+                                    <h3>Electronic Components</h3>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Component</th>
+                                                <th>Quantity</th>
+                                                <th>Notes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>NEMA 17 Stepper Motors</td>
+                                                <td>6x</td>
+                                                <td>1.7A, 0.4Nm minimum</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Arduino Mega 2560</td>
+                                                <td>1x</td>
+                                                <td>Or compatible board</td>
+                                            </tr>
+                                            <tr>
+                                                <td>RAMPS 1.4 Shield</td>
+                                                <td>1x</td>
+                                                <td>For motor control</td>
+                                            </tr>
+                                            <tr>
+                                                <td>A4988 Stepper Drivers</td>
+                                                <td>6x</td>
+                                                <td>With heatsinks</td>
+                                            </tr>
+                                            <tr>
+                                                <td>12V Power Supply</td>
+                                                <td>1x</td>
+                                                <td>15A minimum</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Limit Switches</td>
+                                                <td>6x</td>
+                                                <td>Mechanical endstops</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GT2 Timing Belts</td>
+                                                <td>3m</td>
+                                                <td>6mm width</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bearings 608ZZ</td>
+                                                <td>12x</td>
+                                                <td>Standard skateboard bearings</td>
+                                            </tr>
+                                            <tr>
+                                                <td>M3 Hardware Kit</td>
+                                                <td>1x</td>
+                                                <td>Screws, nuts, washers</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <h3>Tools Required</h3>
+                                    <ul>
+                                        <li>3D Printer (build volume: 200x200x200mm minimum)</li>
+                                        <li>Hex key set (M2-M6)</li>
+                                        <li>Screwdrivers (Phillips and flathead)</li>
+                                        <li>Wire strippers and cutters</li>
+                                        <li>Soldering iron (optional, for custom wiring)</li>
+                                        <li>Multimeter (for debugging)</li>
+                                        <li>Computer with USB port</li>
+                                    </ul>
+                                </section>
+
+                                <!-- 3D Printing Guide -->
+                                <section id="3d-printing">
+                                    <h2 class="font-secondary">3D Printing Guide</h2>
+                                    
+                                    <div class="row align-items-center mb-30">
+                                        <div class="col-md-7">
+                                            <h3>Download Design Files</h3>
+                                            <p>All CAD files are available on our GitHub repository. Download the complete package or individual STL files for each component.</p>
+                                            
+                                            <a href="https://github.com/ErvyRobotic" class="btn style-two fw-semibold position-relative round-oval mb-20">
+                                                Download from GitHub
+                                                <span class="position-absolute top-0 end-0 h-100 d-flex flex-column align-items-center justify-content-center">
+                                                    <img src="assets/img/icons/right-arrow-white.svg" alt="Icon">
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <img src="assets/img/about/git.png" alt="GitHub" class="w-100 round-10">
+                                        </div>
+                                    </div>
+
+                                    <h3>Recommended Print Settings</h3>
+                                    <div class="code-block">
+                                        <code>
+Layer Height: 0.2mm<br>
+Infill: 20-30%<br>
+Print Speed: 50mm/s<br>
+Wall Thickness: 1.2mm (3 walls)<br>
+Top/Bottom Layers: 4 each<br>
+Support: Required for some parts<br>
+Bed Temperature: 60°C (PLA) / 80°C (PETG)<br>
+Nozzle Temperature: 210°C (PLA) / 240°C (PETG)<br>
+                                        </code>
+                                    </div>
+
+                                    <div class="warning-box">
+                                        <strong>⚠️ Important:</strong> Some parts require support structures. Always orient parts for optimal strength - layer lines should run perpendicular to stress directions.
+                                    </div>
+
+                                    <h3>Print Order & Priority</h3>
+                                    <p>We recommend printing in this order to allow for testing as you build:</p>
+                                    <ol>
+                                        <li><strong>Base and Motor Mounts</strong> - Start with the foundation</li>
+                                        <li><strong>Shoulder Joint</strong> - Test motor integration</li>
+                                        <li><strong>Upper Arm & Elbow</strong> - Build vertically</li>
+                                        <li><strong>Forearm & Wrist</strong> - Complete the arm structure</li>
+                                        <li><strong>Gripper Components</strong> - Final assembly pieces</li>
+                                    </ol>
+                                </section>
+
+                                <!-- Assembly Instructions -->
+                                <section id="assembly">
+                                    <h2 class="font-secondary">Assembly Instructions</h2>
+                                    
+                                    <div class="row mb-30">
+                                        <div class="col-md-6">
+                                            <img src="assets/img/about/about-img-2.jpg" alt="Assembly" class="w-100 round-10 mb-20">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3>Assembly Overview</h3>
+                                            <p>Follow these step-by-step instructions to assemble your robotic arm. Take your time and double-check each connection before proceeding to the next step.</p>
+                                            <p>The assembly process is divided into distinct sections for easier troubleshooting and testing.</p>
+                                        </div>
+                                    </div>
+
+                                    <h3>Step 1: Base Assembly</h3>
+                                    <div class="step-card">
+                                        <p><strong>Duration:</strong> 30-45 minutes</p>
+                                        <ol>
+                                            <li>Install the base motor mount using M3x12 screws</li>
+                                            <li>Secure NEMA 17 motor (Motor 1 - Base Rotation)</li>
+                                            <li>Install 608ZZ bearings in the rotation platform</li>
+                                            <li>Connect GT2 belt between motor and bearing assembly</li>
+                                            <li>Install limit switch at minimum rotation point</li>
+                                            <li>Test rotation manually before proceeding</li>
+                                        </ol>
+                                    </div>
+
+                                    <h3>Step 2: Shoulder Joint</h3>
+                                    <div class="step-card">
+                                        <p><strong>Duration:</strong> 45-60 minutes</p>
+                                        <ol>
+                                            <li>Mount Motor 2 to shoulder joint housing</li>
+                                            <li>Install bearings for smooth rotation</li>
+                                            <li>Attach upper arm connection point</li>
+                                            <li>Connect timing belt and tension properly</li>
+                                            <li>Install shoulder limit switches (min/max position)</li>
+                                            <li>Attach shoulder assembly to base platform</li>
+                                        </ol>
+                                    </div>
+
+                                    <h3>Step 3: Elbow & Forearm</h3>
+                                    <div class="step-card">
+                                        <p><strong>Duration:</strong> 45 minutes</p>
+                                        <ol>
+                                            <li>Assemble elbow joint with Motor 3</li>
+                                            <li>Connect upper arm to elbow joint</li>
+                                            <li>Install forearm section with proper alignment</li>
+                                            <li>Add limit switches for elbow position</li>
+                                            <li>Test range of motion</li>
+                                        </ol>
+                                    </div>
+
+                                    <h3>Step 4: Wrist & Gripper</h3>
+                                    <div class="step-card">
+                                        <p><strong>Duration:</strong> 60 minutes</p>
+                                        <ol>
+                                            <li>Install Motors 4, 5, and 6 for wrist articulation</li>
+                                            <li>Assemble gripper mechanism with servo control</li>
+                                            <li>Connect all wrist timing belts</li>
+                                            <li>Install gripper limit switches</li>
+                                            <li>Test full wrist range of motion</li>
+                                            <li>Verify gripper open/close operation</li>
+                                        </ol>
+                                    </div>
+
+                                    <div class="note-box">
+                                        <strong>💡 Pro Tip:</strong> Apply a small amount of lithium grease to bearing surfaces for smoother operation. Avoid over-tightening screws as this can crack 3D printed parts.
+                                    </div>
+                                </section>
+
+                                <!-- Electronics Setup -->
+                                <section id="electronics">
+                                    <h2 class="font-secondary">Electronics Setup</h2>
+                                    
+                                    <div class="row mb-30">
+                                        <div class="col-md-6">
+                                            <h3>Controller Wiring</h3>
+                                            <p>Connect all electronic components to the Arduino Mega with RAMPS shield following this wiring diagram:</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <img src="assets/img/about/ai-img-1.jpg" alt="Electronics" class="w-100 round-10">
+                                        </div>
+                                    </div>
+
+                                    <h3>Motor Connections</h3>
+                                    <div class="code-block">
+                                        <code>
+Motor 1 (Base):     → X-Axis Driver<br>
+Motor 2 (Shoulder): → Y-Axis Driver<br>
+Motor 3 (Elbow):    → Z-Axis Driver<br>
+Motor 4 (Wrist 1):  → E0 Driver<br>
+Motor 5 (Wrist 2):  → E1 Driver<br>
+Motor 6 (Gripper):  → Servo Pin D11<br>
+<br>
+Power Input: 12V 15A → RAMPS Power Terminals<br>
+USB: Arduino Mega → Computer/Raspberry Pi
+                                        </code>
+                                    </div>
+
+                                    <h3>Limit Switch Wiring</h3>
+                                    <p>Connect limit switches to their respective axis pins:</p>
+                                    <ul>
+                                        <li>X-Min: Base minimum rotation</li>
+                                        <li>X-Max: Base maximum rotation</li>
+                                        <li>Y-Min: Shoulder minimum angle</li>
+                                        <li>Y-Max: Shoulder maximum angle</li>
+                                        <li>Z-Min: Elbow minimum angle</li>
+                                        <li>Z-Max: Elbow maximum angle</li>
+                                    </ul>
+
+                                    <div class="warning-box">
+                                        <strong>⚠️ Safety Warning:</strong> Always disconnect power before modifying wiring. Double-check polarity of power connections to avoid damaging components.
+                                    </div>
+
+                                    <h3>Driver Configuration</h3>
+                                    <div class="step-card">
+                                        <p><strong>Setting Motor Current (A4988):</strong></p>
+                                        <ol>
+                                            <li>Measure Vref on driver potentiometer with multimeter</li>
+                                            <li>Calculate: Desired Current = Vref × 2.5</li>
+                                            <li>For 1.7A motors: Set Vref to 0.68V</li>
+                                            <li>Adjust potentiometer carefully with small screwdriver</li>
+                                            <li>Repeat for all 6 drivers</li>
+                                        </ol>
+                                    </div>
+                                </section>
+
+                                <!-- Software Installation -->
+                                <section id="software-installation">
+                                    <h2 class="font-secondary">Software Installation</h2>
+                                    
+                                    <div class="row mb-30">
+                                        <div class="col-md-7">
+                                            <h3>Prerequisites</h3>
+                                            <p>Before installing the Ervy software, ensure you have:</p>
+                                            <ul>
+                                                <li>Arduino IDE 1.8.19 or newer</li>
+                                                <li>Python 3.8 or newer</li>
+                                                <li>Node.js 16.x or newer (for web interface)</li>
+                                                <li>Git for version control</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <img src="assets/img/about/blockchain.jpg" alt="Software" class="w-100 round-10">
+                                        </div>
+                                    </div>
+
+                                    <h3>Firmware Installation</h3>
+                                    <div class="code-block">
+                                        <code>
+# Clone the repository<br>
+git clone https://github.com/ErvyRobotic/firmware.git<br>
+cd firmware<br>
+<br>
+# Open in Arduino IDE<br>
+# File → Open → ervy_firmware.ino<br>
+<br>
+# Select board: Arduino Mega 2560<br>
+# Select port: (your USB port)<br>
+<br>
+# Upload firmware<br>
+# Sketch → Upload
+                                        </code>
+                                    </div>
+
+                                    <h3>Control Software Setup</h3>
+                                    <div class="code-block">
+                                        <code>
+# Install control software<br>
+git clone https://github.com/ErvyRobotic/control-software.git<br>
+cd control-software<br>
+<br>
+# Install dependencies<br>
+pip install -r requirements.txt<br>
+<br>
+# Configure settings<br>
+cp config.example.yaml config.yaml<br>
+nano config.yaml<br>
+<br>
+# Run control software<br>
+python3 main.py
+                                        </code>
+                                    </div>
+
+                                    <h3>Web Interface Installation</h3>
+                                    <div class="code-block">
+                                        <code>
+# Install web dashboard<br>
+cd web-interface<br>
+npm install<br>
+<br>
+# Start development server<br>
+npm run dev<br>
+<br>
+# Build for production<br>
+npm run build<br>
+<br>
+# Access at http://localhost:3000
+                                        </code>
+                                    </div>
+
+                                    <div class="note-box">
+                                        <strong>📝 Configuration File:</strong> Edit config.yaml to set your serial port, motor speeds, acceleration values, and network settings.
+                                    </div>
+                                </section>
+
+                                <!-- Calibration -->
+                                <section id="calibration">
+                                    <h2 class="font-secondary">Calibration</h2>
+                                    <p>Proper calibration ensures accurate positioning and smooth operation of your robotic arm.</p>
+
+                                    <h3>Initial Homing</h3>
+                                    <div class="step-card">
+                                        <ol>
+                                            <li>Power on the system</li>
+                                            <li>Open control software terminal</li>
+                                            <li>Run command: <code>G28</code> (home all axes)</li>
+                                            <li>Arm will move to limit switches sequentially</li>
+                                            <li>Verify each axis homes correctly</li>
+                                            <li>Note: This establishes zero positions</li>
+                                        </ol>
+                                    </div>
+
+                                    <h3>Steps Per Unit Calibration</h3>
+                                    <div class="code-block">
+                                        <code>
+# For each axis, measure actual vs commanded movement<br>
+<br>
+1. Command 100mm movement<br>
+2. Measure actual movement<br>
+3. Calculate: New Steps = (Old Steps × Commanded) / Actual<br>
+4. Update in firmware configuration<br>
+5. Re-upload and test<br>
+<br>
+Example:<br>
+Commanded: 100mm<br>
+Actual: 95mm<br>
+Old Steps: 80 steps/mm<br>
+New Steps: (80 × 100) / 95 = 84.21 steps/mm
+                                        </code>
+                                    </div>
+
+                                    <h3>Auto-Calibration Wizard</h3>
+                                    <p>Use the built-in calibration wizard for easier setup:</p>
+                                    <div class="code-block">
+                                        <code>
+python3 calibrate.py --interactive<br>
+<br>
+# Follow on-screen prompts<br>
+# Wizard will guide through:<br>
+# - Limit switch verification<br>
+# - Motor direction check<br>
+# - Step calibration<br>
+# - Range of motion testing<br>
+# - Speed optimization
+                                        </code>
+                                    </div>
+                                </section>
+
+                                <!-- Network Connection -->
+                                <section id="network-connection">
+                                    <h2 class="font-secondary">Network Connection</h2>
+                                    <p>Connect your robotic arm to the Ervy network to enable remote access and begin earning.</p>
+
+                                    <h3>Network Requirements</h3>
+                                    <ul>
+                                        <li>Stable internet connection (minimum 5 Mbps upload)</li>
+                                        <li>Static IP or DDNS service (recommended)</li>
+                                        <li>Port forwarding for external access (ports 8080, 8443)</li>
+                                        <li>Solana wallet with SOL for transactions</li>
+                                    </ul>
+
+                                    <h3>Connecting to Ervy Network</h3>
+                                    <div class="code-block">
+                                        <code>
+# Install network client<br>
+npm install -g @ervy/network-client<br>
+<br>
+# Initialize connection<br>
+ervy-client init<br>
+<br>
+# Enter your details:<br>
+# - Wallet address<br>
+# - Device name<br>
+# - Location (optional)<br>
+# - Hourly rate<br>
+<br>
+# Start network daemon<br>
+ervy-client start --daemon<br>
+<br>
+# Check status<br>
+ervy-client status
+                                        </code>
+                                    </div>
+
+                                    <h3>Network Dashboard</h3>
+                                    <p>Monitor your node's performance through the web dashboard at <code>http://your-ip:8080/dashboard</code></p>
+                                    <ul>
+                                        <li>Real-time connection status</li>
+                                        <li>Active sessions and requests</li>
+                                        <li>Earnings and statistics</li>
+                                        <li>Health monitoring</li>
+                                        <li>Performance metrics</li>
+                                    </ul>
+                                </section>
+
+                                <!-- RaaS Setup -->
+                                <section id="raas-setup">
+                                    <h2 class="font-secondary">RaaS Node Setup</h2>
+                                    <p>Transform your robotic arm into an earning node on the Ervy network.</p>
+
+                                    <h3>Node Registration</h3>
+                                    <div class="step-card">
+                                        <ol>
+                                            <li>Create or import Solana wallet</li>
+                                            <li>Acquire ERVY tokens for staking</li>
+                                            <li>Register node on Ervy platform</li>
+                                            <li>Stake minimum required tokens (50 ERVY)</li>
+                                            <li>Set your pricing and availability</li>
+                                            <li>Activate node for incoming requests</li>
+                                        </ol>
+                                    </div>
+
+                                    <h3>Setting Your Rates</h3>
+                                    <p>Configure your pricing structure based on:</p>
+                                    <ul>
+                                        <li><strong>Per-Minute Rate:</strong> Base rate for robot usage time</li>
+                                        <li><strong>Setup Fee:</strong> One-time fee per session</li>
+                                        <li><strong>Complexity Multiplier:</strong> Charge more for complex tasks</li>
+                                        <li><strong>Peak Hours:</strong> Optional surge pricing during high demand</li>
+                                    </ul>
+
+                                    <div class="code-block">
+                                        <code>
+# Example pricing configuration<br>
+{<br>
+&nbsp;&nbsp;"baseRate": 0.05,        // 0.05 ERVY per minute<br>
+&nbsp;&nbsp;"setupFee": 0.10,        // 0.10 ERVY per session<br>
+&nbsp;&nbsp;"complexityMultiplier": 1.5,<br>
+&nbsp;&nbsp;"peakHours": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"enabled": true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"multiplier": 1.3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"hours": "09:00-17:00"<br>
+&nbsp;&nbsp;}<br>
+}
+                                        </code>
+                                    </div>
+                                </section>
+
+                                <!-- Token Staking -->
+                                <section id="token-staking">
+                                    <h2 class="font-secondary">Token Staking</h2>
+                                    <p>Staking ERVY tokens is required to operate a node on the network. Stakes ensure quality service and network security.</p>
+
+                                    <h3>Staking Requirements</h3>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Node Tier</th>
+                                                <th>Minimum Stake</th>
+                                                <th>Benefits</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Basic</td>
+                                                <td>50 ERVY</td>
+                                                <td>Standard visibility, basic support</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Professional</td>
+                                                <td>200 ERVY</td>
+                                                <td>Priority listing, reduced fees (8%)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Enterprise</td>
+                                                <td>500 ERVY</td>
+                                                <td>Featured placement, lowest fees (5%), dedicated support</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <h3>How to Stake</h3>
+                                    <div class="code-block">
+                                        <code>
+# Using web dashboard<br>
+1. Navigate to "Staking" section<br>
+2. Connect your Solana wallet<br>
+3. Enter stake amount<br>
+4. Confirm transaction<br>
+5. Wait for blockchain confirmation<br>
+<br>
+# Using CLI<br>
+ervy-client stake --amount 50
+                                        </code>
+                                    </div>
+
+                                    <div class="note-box">
+                                        <strong>📌 Important:</strong> Staked tokens remain in your custody via smart contract. You can unstake at any time, but there's a 7-day unbonding period before tokens are available.
+                                    </div>
+                                </section>
+
+                                <!-- Earning & Rewards -->
+                                <section id="earning">
+                                    <h2 class="font-secondary">Earning & Rewards</h2>
+                                    <p>Start generating passive income by providing robotic arm access to users worldwide.</p>
+
+                                    <h3>Revenue Streams</h3>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-20">
+                                            <div class="step-card">
+                                                <h5>Usage Fees</h5>
+                                                <p class="mb-0">Earn tokens every time someone uses your robot. Payments are automatic via smart contracts.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-20">
+                                            <div class="step-card">
+                                                <h5>Uptime Rewards</h5>
+                                                <p class="mb-0">Bonus rewards for maintaining high availability (95%+ uptime) on the network.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-20">
+                                            <div class="step-card">
+                                                <h5>Staking Yields</h5>
+                                                <p class="mb-0">Earn additional APY on your staked tokens (currently 8-12% annually).</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3>Payment Distribution</h3>
+                                    <p>Understand how earnings are calculated and distributed:</p>
+                                    <div class="code-block">
+                                        <code>
+Session Fee Structure:<br>
+<br>
+User Payment:           100 ERVY<br>
+- Network Fee (10%):    -10 ERVY<br>
+- Your Earnings:         90 ERVY<br>
+<br>
+Automatically distributed to your wallet<br>
+after each completed session.
+                                        </code>
+                                    </div>
+
+                                    <h3>Maximizing Earnings</h3>
+                                    <ul>
+                                        <li><strong>Maintain High Uptime:</strong> Keep your node online 24/7 for maximum exposure</li>
+                                        <li><strong>Optimize Response Time:</strong> Fast response increases your ranking</li>
+                                        <li><strong>Build Reputation:</strong> Positive ratings attract more users</li>
+                                        <li><strong>Competitive Pricing:</strong> Balance profit with market demand</li>
+                                        <li><strong>Upgrade Stake Tier:</strong> Higher tiers get better visibility</li>
+                                    </ul>
+
+                                    <h3>Withdrawal</h3>
+                                    <div class="code-block">
+                                        <code>
+# Earnings are automatically sent to your wallet<br>
+# No minimum withdrawal required<br>
+# Instant settlement after session completion<br>
+<br>
+# View balance<br>
+ervy-client balance<br>
+<br>
+# View transaction history<br>
+ervy-client history --limit 50
+                                        </code>
+                                    </div>
+                                </section>
+
+                                <!-- API Reference -->
+                                <section id="api-reference">
+                                    <h2 class="font-secondary">API Reference</h2>
+                                    <p>Integrate Ervy functionality into your custom applications using our REST API.</p>
+
+                                    <h3>Authentication</h3>
+                                    <div class="code-block">
+                                        <code>
+POST /api/v1/auth<br>
+Content-Type: application/json<br>
+<br>
+{<br>
+&nbsp;&nbsp;"walletAddress": "your_solana_address",<br>
+&nbsp;&nbsp;"signature": "signed_message"<br>
+}<br>
+<br>
+Response:<br>
+{<br>
+&nbsp;&nbsp;"token": "jwt_token",<br>
+&nbsp;&nbsp;"expiresIn": 3600<br>
+}
+                                        </code>
+                                    </div>
+
+                                    <h3>Control Endpoints</h3>
+                                    
+                                    <h4>Move to Position</h4>
+                                    <div class="code-block">
+                                        <code>
+POST /api/v1/move<br>
+Authorization: Bearer {token}<br>
+<br>
+{<br>
+&nbsp;&nbsp;"x": 150,<br>
+&nbsp;&nbsp;"y": 200,<br>
+&nbsp;&nbsp;"z": 100,<br>
+&nbsp;&nbsp;"speed": 50<br>
+}<br>
+<br>
+Response: 200 OK
+                                        </code>
+                                    </div>
+
+                                    <h4>Get Current Position</h4>
+                                    <div class="code-block">
+                                        <code>
+GET /api/v1/position<br>
+Authorization: Bearer {token}<br>
+<br>
+Response:<br>
+{<br>
+&nbsp;&nbsp;"x": 150.0,<br>
+&nbsp;&nbsp;"y": 200.0,<br>
+&nbsp;&nbsp;"z": 100.0,<br>
+&nbsp;&nbsp;"timestamp": 1234567890<br>
+}
+                                        </code>
+                                    </div>
+
+                                    <h4>Control Gripper</h4>
+                                    <div class="code-block">
+                                        <code>
+POST /api/v1/gripper<br>
+Authorization: Bearer {token}<br>
+<br>
+{<br>
+&nbsp;&nbsp;"action": "close",  // "open" or "close"<br>
+&nbsp;&nbsp;"force": 50         // 0-100<br>
+}
+                                        </code>
+                                    </div>
+
+                                    <h3>Network Endpoints</h3>
+                                    
+                                    <h4>Get Node Status</h4>
+                                    <div class="code-block">
+                                        <code>
+GET /api/v1/node/status<br>
+<br>
+Response:<br>
+{<br>
+&nbsp;&nbsp;"online": true,<br>
+&nbsp;&nbsp;"uptime": 99.8,<br>
+&nbsp;&nbsp;"sessionsToday": 45,<br>
+&nbsp;&nbsp;"earningsToday": 23.5,<br>
+&nbsp;&nbsp;"rating": 4.8<br>
+}
+                                        </code>
+                                    </div>
+
+                                    <div class="note-box">
+                                        <strong>📚 Full API Documentation:</strong> Visit <a href="https://docs.ervy-robotic.com/api" class="text_primary">docs.ervy-robotic.com/api</a> for complete endpoint reference, code examples in multiple languages, and interactive testing.
+                                    </div>
+                                </section>
+
+                                <!-- Troubleshooting -->
+                                <section id="troubleshooting">
+                                    <h2 class="font-secondary">Troubleshooting</h2>
+                                    <p>Common issues and their solutions:</p>
+
+                                    <h3>Motor Not Moving</h3>
+                                    <div class="step-card">
+                                        <p><strong>Possible Causes:</strong></p>
+                                        <ul>
+                                            <li>Check power supply voltage and amperage</li>
+                                            <li>Verify driver current setting (Vref)</li>
+                                            <li>Ensure motor connections are secure</li>
+                                            <li>Check if limit switch is triggered</li>
+                                            <li>Verify firmware uploaded correctly</li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>Positioning Inaccuracy</h3>
+                                    <div class="step-card">
+                                        <p><strong>Solutions:</strong></p>
+                                        <ul>
+                                            <li>Re-run calibration wizard</li>
+                                            <li>Check for loose belts (should have light tension)</li>
+                                            <li>Verify steps-per-unit configuration</li>
+                                            <li>Ensure no mechanical binding</li>
+                                            <li>Lubricate bearings if needed</li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>Network Connection Issues</h3>
+                                    <div class="step-card">
+                                        <p><strong>Checklist:</strong></p>
+                                        <ul>
+                                            <li>Verify internet connectivity</li>
+                                            <li>Check firewall settings and port forwarding</li>
+                                            <li>Ensure wallet has sufficient SOL for gas</li>
+                                            <li>Restart network daemon</li>
+                                            <li>Check node status on dashboard</li>
+                                        </ul>
+                                    </div>
+
+                                    <h3>Overheating Drivers</h3>
+                                    <div class="step-card">
+                                        <p><strong>Prevention:</strong></p>
+                                        <ul>
+                                            <li>Verify driver current not set too high</li>
+                                            <li>Add heatsinks to all stepper drivers</li>
+                                            <li>Improve airflow around electronics</li>
+                                            <li>Consider adding cooling fan</li>
+                                            <li>Reduce motor current if possible</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="warning-box">
+                                        <strong>⚠️ Still Having Issues?</strong> Join our community Discord server for real-time support or open an issue on our GitHub repository.
+                                    </div>
+                                </section>
+
+                                <!-- FAQ -->
+                                <section id="faq">
+                                    <h2 class="font-secondary">Frequently Asked Questions</h2>
+                                    
+                                    <div class="step-card">
+                                        <h5>How much can I earn with a RaaS node?</h5>
+                                        <p>Earnings vary based on usage, pricing, and network demand. Active nodes typically earn $50-$200/month, with high-demand periods earning significantly more. Your location, uptime, and reputation also factor into earning potential.</p>
+                                    </div>
+
+                                    <div class="step-card">
+                                        <h5>Do I need programming experience?</h5>
+                                        <p>Basic understanding is helpful but not required. Our setup wizard automates most configuration. For custom modifications, Python and Arduino knowledge is beneficial.</p>
+                                    </div>
+
+                                    <div class="step-card">
+                                        <h5>Can I modify the design?</h5>
+                                        <p>Absolutely! The entire project is open-source under MIT license. Customize, improve, and share your modifications with the community.</p>
+                                    </div>
+
+                                    <div class="step-card">
+                                        <h5>What's the power consumption?</h5>
+                                        <p>Idle: ~20W, Active operation: 80-150W depending on load. Estimated monthly cost: $15-30 at average electricity rates.</p>
+                                    </div>
+
+                                    <div class="step-card">
+                                        <h5>How do I handle maintenance?</h5>
+                                        <p>Monthly: Check belt tension, clean components, verify calibration. Quarterly: Lubricate bearings, inspect wiring. Annual: Replace worn belts or bearings as needed.</p>
+                                    </div>
+
+                                    <div class="step-card">
+                                        <h5>Is my robot secure?</h5>
+                                        <p>Yes. All communications are encrypted, authentication is required, and you maintain full control. You can set usage limits, blacklist users, and pause availability anytime.</p>
+                                    </div>
+
+                                    <div class="step-card">
+                                        <h5>Can I run multiple nodes?</h5>
+                                        <p>Yes! Many operators run multiple arms to increase earnings. Each requires its own stake, but management tools allow controlling multiple nodes from one dashboard.</p>
+                                    </div>
+
+                                    <div class="step-card">
+                                        <h5>What if something breaks?</h5>
+                                        <p>Most parts are 3D printed and can be reprinted. Electronic components are standard and easily replaceable. We maintain a marketplace where community members sell spare parts.</p>
+                                    </div>
+                                </section>
+
+                                <!-- Support Section -->
+                                <div class="bg_primary round-20 p-50 mt-50 text-center">
+                                    <h2 class="text-white mb-20">Need More Help?</h2>
+                                    <p class="text-offwhite mb-30">Our community and support team are here to assist you</p>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-4 mb-20">
+                                            <a href="https://github.com/ErvyRobotic" class="btn style-one fw-semibold position-relative round-oval">
+                                                GitHub Repository
+                                                <span class="position-absolute top-0 end-0 h-100 d-flex flex-column align-items-center justify-content-center">
+                                                    <img src="assets/img/icons/right-arrow-black.svg" alt="Icon">
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 mb-20">
+                                            <a href="https://x.com/ErvyRobotic" class="btn style-one fw-semibold position-relative round-oval">
+                                                Join Community
+                                                <span class="position-absolute top-0 end-0 h-100 d-flex flex-column align-items-center justify-content-center">
+                                                    <img src="assets/img/icons/right-arrow-black.svg" alt="Icon">
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 mb-20">
+                                            <a href="index.html" class="btn style-one fw-semibold position-relative round-oval">
+                                                Back to Home
+                                                <span class="position-absolute top-0 end-0 h-100 d-flex flex-column align-items-center justify-content-center">
+                                                    <img src="assets/img/icons/right-arrow-black.svg" alt="Icon">
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Documentation Content End -->
+
+                <!-- Footer Section Start -->
+                <footer class="footer-area style-one bg-black position-relative z-1 pt-130">
+                    <div class="container style-one">
+                        <div class="row justify-content-center mb-40">
+                            <div class="col-lg-2 col-md-6" data-cue="slideInUp">
+                                <div class="footer-widget mb-30" style="width: 150px;">
+                                    <a href="/" class="logo"><img src="assets/img/logo-white.png" alt="Logo"></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="footer-widget mb-30 ps-xxl-5 ms-xxl-1" data-cue="slideInUp">
+                                    <h3 class="footer-widget-title text-white fs-18 fw-semibold">Quick Links</h3>
+                                    <ul class="footer-menu list-unstyled mb-0">
+                                        <li><a href="https://github.com/ErvyRobotic">GitHub</a></li>
+                                        <li><a href="https://solscan.io/token/Z6RHtkv5xrhpHwswaHSP6W1GQkhgqH3fAcA4NHervy">SolScan</a></li>
+                                        <li><a href="#">Medium (Soon)</a></li>
+                                        <li><a href="docs.html">Documentation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-4 col-md-6 ps-xxl-4 pe-xxl-1" data-cue="slideInUp">
+                                <div class="footer-widget mb-30">
+                                    <h3 class="text-white fs-20 font-secondary fw-medium mb-12">Subscribe To Our Newsletter</h3>
+                                    <form action="#" class="newsletter-form position-relative">
+                                        <input type="email" class="fs-15 w-100 bg-transparent text-white outline-0" placeholder="Enter Your Email">
+                                        <button class="position-absolute bg-transparent border-0 end-0"><img src="assets/img/icons/plane-small.svg" alt="Icon"></button>
+                                    </form>
+                                    <div class="post-share d-flex flex-wrap align-items-center">
+                                        <span class="text-white fw-medium me-2">Follow Us :</span>
+                                        <ul class="social-profile style-one list-unstyled mb-0">
+                                            <li><a href="https://x.com/ErvyRobotic" target="_blank" class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i class="ri-twitter-x-line"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom position-relative overflow-hidden z-1" data-cue="fadIn">
+                        <div class="container-fluid position-relative px-xxl-4" style="display: flex; justify-content: center;">
+                            <div class="footer-big">ERVY</div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- Footer End -->
+
+            </div>
+        </div>
+        <!-- Back to Top -->
+        <div id="progress-wrap" class="progress-wrap style-one">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+              <path id="progress-path" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+            </svg>
+        </div>
+
+        <!-- Link of JS files -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/megamenu.js"></script>
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="assets/js/fslightbox.js"></script>
+        <script src="assets/js/gsap.min.js"></script>
+        <script src="assets/js/scrollTrigger.min.js"></script>
+        <script src="assets/js/lenis.min.js"></script>
+        <script src="assets/js/scrollToPlugin.js"></script>
+        <script src="assets/js/SplitText.min.js"></script>
+        <script src="assets/js/customEase.js"></script>
+        <script src="assets/js/scrollcue.min.js"></script>
+        <script src="assets/js/main.js"></script>
+
+        <script>
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('.docs-sidebar a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Update active link
+                        document.querySelectorAll('.docs-sidebar a').forEach(a => a.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+
+            // Update active link on scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+                document.querySelectorAll('section').forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                document.querySelectorAll('.docs-sidebar a').forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href') === `#${current}`) {
+                        a.classList.add('active');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
